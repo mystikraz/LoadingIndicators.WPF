@@ -28,7 +28,17 @@ LoadingIndicators.WPF is a collection of 8 animated loading indicators for WPF c
 ```
 - Add Loading indicator and select mode
 ```xml
-<li:LoadingIndicator Grid.Column="0" Grid.Row="0" SpeedRatio="{Binding SpeedRatio}" IsActive="{Binding IsArcsActive}" Mode="Arcs" />
+```<Window.Resources>
+       
+        <ResourceDictionary>            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles/LoadingArcs.xaml"/>
+            <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+    </Window.Resources>
+<li:LoadingIndicator Grid.Column="0" SpeedRatio="2" Visibility="{Binding LoadingIndicator}" IsActive="true" Style="{DynamicResource LoadingIndicatorThreeDotsStyle}" />
 ```
 
 Note: Waves mode will be selected by default if left empty
